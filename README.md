@@ -97,6 +97,11 @@ and(y1,i,s0,s1bar);
 and(y0,i,s0bar,s1bar);
 endmodule
 ```
+# TRUTH TABLE
+## For MULTIPLEXER:
+![exercise-07-multiplexer-and-de-multiplexer-](multt.png)
+## For DEMULTIPLEXER:
+![exercise-07-multiplexer-and-de-multiplexer-](demultt.png)
 # RTL LOGIC  
 ## For MULTIPLEXER:
 ![exercise-07-multiplexer-and-de-multiplexer-](mul.png)
