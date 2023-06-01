@@ -1,13 +1,14 @@
 # Exercise-07-Multiplexer-and-De-multiplexer
-### AIM: To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
-### THEORY 
+# AIM: 
+To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
+# HARDWARE REQUIRED:   PC, Cyclone II , USB flasher
+# SOFTWARE REQUIRED:   Quartus prime
+# THEORY 
 
-## What are Multiplexer and Demultiplexer?
+### What are Multiplexer and Demultiplexer?
 In-network transmission, both the multiplexer and demultiplexer are combinational circuits. A multiplexer selects an input from several inputs then it is transmitted in the form of a single line. An alternative name of the multiplexer is MUX or data selector. A demultiplexer uses one input signal and generates many. So it is known as Demux or data distributor.
 
-## What is a Multiplexer?
+### What is a Multiplexer?
 The multiplexer is a device that has multiple inputs and single line output. The select lines determine which input is connected to the output, and also increase the amount of data that can be sent over a network within a certain time. It is also called a data selector.
 
 The single-pole multi-position switch is a simple example of a non-electronic circuit of the multiplexer, and it is widely used in many electronic circuits. The multiplexer is used to perform high-speed switching and is constructed by electronic components.
@@ -26,7 +27,7 @@ Figure2 4X1 multiplexer
 If the control input is changed to 11, then all gates are restricted except the bottom AND gate. In this case, D3 is transmitted to the output, and q=D0. If the control input is changed to AB =11, all gates are disabled except the bottom AND gate. In this case, D3 is transmitted to the output, and q = D3. The best example of a 4X1 multiplexer is IC 74153. In this IC, the o/p is the same as the i/p. Another example of a 4X1 multiplexer is IC 45352. In this IC, the o/p is the compliment of the i/p
 
 
-## What is Demultiplexer?
+### What is Demultiplexer?
 De-multiplexer is also a device with one input and multiple output lines. It is used to send a signal to one of the many devices. The main difference between a multiplexer and a de-multiplexer is that a multiplexer takes two or more signals and encodes them on a wire, whereas a de-multiplexer does reverse to what the multiplexer does.
 ![image](https://user-images.githubusercontent.com/36288975/170912606-a30e4b74-1726-4430-b245-2c3c3d9c232d.png)
 Figure 3 De-multiplexer 
@@ -46,43 +47,65 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 
  
  
-### Procedure
-/* write all the steps invloved */
+# Procedure
+### STEP 1:
+Open the  quartus 2  software give the file name to write the program
+### STEP 2:
+Declare input and output variable throuugh module and filename 
+### STEP 3:
+Now,declare input,output and wire variables.
+### STEP 4:
+For multiplexer we use 2 not gate,4 and gate and 1 or gate which is output.
+similary, for demultiplexer we use 2 not gate and 4 and gate which is output. 
+### STEP 5:
+After completing program , we have to end program by using endmodule command which is used in verilog.
+### STEP 6:
+Now we can save and run the porgram.
 
-
-
-### PROGRAM 
-/*
+# PROGRAM 
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Akshayaa M
+RegisterNumber:  212222230009
 
+For MULTIPLEXER:
 
+module mul(s0,s1,a0,a1,a2,a3,y);
+input s0,s1,a0,a1,a2,a3;
+output y;
+wire a,b,c,d,s0bar,s1bar;
+not(s0bar,s0);
+not(s1bar,s1);
+and(a,s0,s1,a3);
+and(b,s0bar,s1,a2);
+and (c,s0,s1bar,a1);
+and(d,s0bar,s1bar,a0);
+or (y,a,b,c,d);
+endmodule
 
+For DEMULTIPLEXER:
 
-
-
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+module demul(s0,s1,i,y0,y1,y2,y3);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0bar,s1bar;
+not(s0bar,s0);
+not(s1bar,s1);
+and(y3,i,s0,s1);
+and(y2,i,s0bar,s1);
+and(y1,i,s0,s1bar);
+and(y0,i,s0bar,s1bar);
+endmodule
+```
+# RTL LOGIC  
+## For MULTIPLEXER:
+![exercise-07-multiplexer-and-de-multiplexer-](mul.png)
+## For DEMULTIPLEXER:
+![exercise-07-multiplexer-and-de-multiplexer-](demul.png)
+# TIMING DIGRAMS  
+## For MULTIPLEXER:
+![exercise-07-multiplexer-and-de-multiplexer-](mulwave.png)
+## For DEMULTIPLEXER:
+![exercise-07-multiplexer-and-de-multiplexer-](demulwave.png)
+# RESULTS
+Therefore multiplexer and demultiplexer is executed successfully.
